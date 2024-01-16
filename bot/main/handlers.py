@@ -2,13 +2,7 @@ from aiogram import Router
 from aiogram import types
 from aiogram.filters import Command
 from sqlalchemy.orm import sessionmaker
-
-import sys
-sys.path.append("..")
-
-# REDO some-when
-
-from models import engine, TestModel
+from models import TestModel, engine
 
 
 session_instance = sessionmaker(bind=engine)
