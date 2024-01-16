@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  postgres_db:
+    image: postgres:16.1
+    container_name: db_postgres_c
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_NAME=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+  bot:
+    build: ./bot
+    container_name: bot_c
+#    command: python models.py
+    command: python run.py
+    working_dir: /bot
+    volumes:
+      - ./bot:/bot
+    environment:
+      - TG_BOT_API_KEY=6425504856:AAF1-Hcbp0gl27Vyi1c-xBtJvOVV2kGGD6w
+      - POSTGRES_NAME=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    depends_on:
+      - postgres_db
