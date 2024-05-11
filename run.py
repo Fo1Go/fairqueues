@@ -2,7 +2,7 @@ import asyncio
 import logging
 from aiogram import Bot, Dispatcher
 from settings import settings
-from main.handlers import queue_router
+from queues.handlers import queue_router
 
 
 logging.basicConfig(level=logging.INFO)

@@ -46,8 +46,6 @@ coverage.xml
 .pytest_cache/
 cover/
 
-
-
 # PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
 __pypackages__/
 
@@ -62,3 +60,7 @@ cython_debug/
 .dockerignore
 data/
 .git/
+
+# env files
+.environment
+database.environment

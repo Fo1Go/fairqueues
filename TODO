@@ -1,0 +1,34 @@
+/feedback
+/author
+
+/registration - activate registration process
+/entergroup [code] - enter group by code
+
+/group - view group
+/group [code] leave
+
+/queues - view active queues
+/queue [code] - enter in active queue or view info about queue
+/queue [code] swap [position number] - offer other ppl change his position in a queue
+/queue [code] leave - leaving from queue
+
+chefs:
+promotes from user to chef when group have been created by him
+/group - view group
+/group update [group field] [new field] - change group field to new field
+/group kick [user id or user nickname]
+/group code - get group code
+/group changecode - group code changing on new random one
+/group promote [user id] - promote from user to chef
+/queue create [random] - activate queue forming. If random is 'yes' or 'true', queue forming from group users randomly
+/queue end [code] - finished the queue
+/queue code - get queue code
+
+admins:
+/admin view [what to view] [code] - groups, queues. If code is present, given only one result
+/admin delete [what to view] [code] - groups, queues
+/admin create [what to view] [code] - groups, queues
+/admin update [what to view] [code] - groups, queues
+/admin promote [group code] [user id or username]
+/admin kick [group code] [user id or username]
+/admin

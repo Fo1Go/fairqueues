@@ -1,39 +1,36 @@
-from sqlalchemy import create_engine, Column, Integer, String, Text, DateTime
-from sqlalchemy.orm import declarative_base
-from sqlalchemy.engine import URL
-import os
-from datetime import datetime
+from sqlalchemy import Column, Integer, String, Text, DateTime
+from bot.utils.db import Base
 
 
-Base = declarative_base()
-url = 'postgresql+psycopg2://postgres:postgres@db_postgres_c:5432/postgres'
-engine = create_engine(url)
-connection = engine.connect()
+class Roles(Base):
+    id = Column()
+    role = Column()
 
 
-class TestModel(Base):
-    """tablename: testingDB
-    :param
-    telegram_id: int
-    name: string
-    description: string
-    """
-    __tablename__: str = "testingDB"
-
-    id = Column(Integer(), primary_key=True)
-    telegram_id = Column(Integer(), nullable=False)
-    date_creation = Column(DateTime(), default=datetime.now)
-    date_last_update = Column(DateTime(), default=datetime.now, onupdate=datetime.now)
-    name = Column(String(), nullable=False)
-    description = Column(Text(), nullable=True)
-
-    def __repr__(self):
-        return f"Test({self.id}, {self.telegram_id}, {self.date_creation})"
+class User(Base):
+    id = Column()
+    username = Column()
+    telegram_id = Column()
+    time_created = Column()
+    is_active = Column()
+    role = Column()
+    group = Column()
 
 
-def create_all_tables():
-    Base.metadata.create_all(engine)
+class Group(Base):
+    id = Column()
+    users = Column()
+    name = Column()
+    queues = Column()
+    is_private = Column()
 
 
-if __name__ == "__main__":
-    create_all_tables()
+class Queue(Base):
+    id = Column()
+    description = Column()
+    time_created = Column()
+    time_started = Column()
+    is_active = Column()
+    activation_code = Column()
+    group_id = Column()
+    users = Column()
