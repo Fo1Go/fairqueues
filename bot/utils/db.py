@@ -1,4 +1,4 @@
-from sqlalchemy.orm import DeclarativeBase, sessionmaker
+from sqlalchemy.orm import DeclarativeBase, create_session
 from sqlalchemy.engine import URL, create_engine
 from bot.settings import settings
 
@@ -16,5 +16,4 @@ url = URL.create(drivername=settings.DB_DRIVER_NAME,
 engine = create_engine(url)
 connection = engine.connect()
 
-maker = sessionmaker(bind=engine)
-session = maker()
+session = create_session(bind=engine)

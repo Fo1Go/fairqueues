@@ -64,3 +64,4 @@ data/
 # env files
 .environment
 database.environment
+alembic.ini

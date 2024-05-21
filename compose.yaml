@@ -7,5 +7,5 @@ services:
     volumes:
       - ./data/db:/var/lib/postgresql/data
     env_file:
-      - path: ./database.environment
+      - path: ./.environment
         required: true
